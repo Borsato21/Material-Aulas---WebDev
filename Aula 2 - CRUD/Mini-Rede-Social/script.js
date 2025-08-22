@@ -42,6 +42,7 @@ function addPost(infosDoEvento){
 
     posts.unshift(novoPost)
     document.querySelector('#postForm').reset();
+ 
 
     mostrarPost()
 }

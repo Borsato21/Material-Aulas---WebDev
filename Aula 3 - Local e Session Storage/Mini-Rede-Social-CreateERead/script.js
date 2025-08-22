@@ -22,6 +22,7 @@ let posts = [
 
 // Inicialização
 window.onload = function() {
+    carregarPost();
     displayPosts();
  
     document.querySelector('#postForm').addEventListener('submit', addPost);
@@ -92,6 +93,7 @@ function editarPost(index){
     const novoTexto = prompt('Edite seu post',posts[index].text);
     posts[index].text = novoTexto;
 
+    salvarPosts()
     displayPosts();
 }
 //Delete
@@ -101,6 +103,17 @@ function apagarPost(index){
         posts.splice(index,1);
     }
     
-
+    salvarPosts()
     displayPosts();
+}
+
+function salvarPosts(){
+    localStorage.setItem("posts", JSON.stringify(posts));
+}
+
+function carregarPost(){
+    const postGuardardados = localStorage.getItem("posts");
+    if(postGuardardados){
+        posts = JSON.parse(postGuardardados)
+    }
 }
