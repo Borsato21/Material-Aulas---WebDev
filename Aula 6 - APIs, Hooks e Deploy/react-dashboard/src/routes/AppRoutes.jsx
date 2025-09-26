@@ -5,12 +5,13 @@ import Usuarios from "../pages/Usuarios";
 import Relatorios from "../pages/Relatorios";
 import Configuracoes from "../pages/Configuracoes";
 import PageNotFound from "../pages/PageNotFound";
-
+import PostsUsuario from "../pages/PostsUsuarios";
+ 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <AdminLayout />,
-    errorElement: <PageNotFound />, 
+    errorElement: <PageNotFound />,
     children: [
       {
         index: true,
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "usuarios",
         element: <Usuarios />,
+      },
+      {
+        path: "usuario/:id/posts",
+        element: <PostsUsuario/>
       },
       {
         path: "relatorios",
